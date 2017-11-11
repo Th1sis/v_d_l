@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[168]:
+# In[179]:
 
 
 import json
@@ -56,6 +56,7 @@ if __name__ == "__main__":
             for lists in data_ids:                                                                  #per second for the app
                 try:                                                                   #checking if exists the "fields" key
                     res=vk_api.users.get(user_ids=lists, fields=data["fields"])
+                    pprint(res)
                     c+=1
                     if c % requests_number_per_second == 0:
                         time.sleep(1)                                                  #wait time till next request to not exceed the 
@@ -79,10 +80,4 @@ if __name__ == "__main__":
         except OSError:
             pprint('отсутствует интернет-соединение')
             sys.exit()        
-
-
-# In[178]:
-
-
-get_ipython().system('python.exe C:\\\\Users\\Theseus\\Desktop\\Vk_data_loader.py D:\\\\t\\a.json')
 
